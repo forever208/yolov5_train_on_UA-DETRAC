@@ -116,12 +116,12 @@ for FLAG in range(2):
         ##train
         seq_root = "/content/Insight-MVT_Annotation_Train/"  # 图片
         xml_root = "/content/DETRAC-Train-Annotations-XML/"  # 原始xml标注
-        label_root = "train_detrac_txt/"  # 新生成的标签保存目录
+        label_root = "/content/train_detrac_txt/"  # 新生成的标签保存目录
     else:
         ##test
         seq_root = "/content/Insight-MVT_Annotation_Test/"  # 图片
         xml_root = "/content/DETRAC-Test-Annotations-XML/"  # 原始xml标注
-        label_root = "test_detrac_txt/"  # 新生成的标签保存目录
+        label_root = "/content/test_detrac_txt/"  # 新生成的标签保存目录
 
     seqs = [s for s in os.listdir(seq_root)]
 

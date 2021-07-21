@@ -12,12 +12,12 @@ import sys
 for FLAG in range(2):
     if FLAG == 0:
         ##train
-        src_dir = "/content/Insight-MVT_Annotation_Train/"  # image
-        dst_dir = "/content/DETRAC-dataset/Annotations/0510/scripts/train_image"
+        src_dir = "/content/Insight-MVT_Annotation_Train/"    # original image path
+        dst_dir = "/content/dataset/images/train/"    # satisfy the folder structure of YOLOv5 for training
     else:
         ##test
-        src_dir = "/content/Insight-MVT_Annotation_Test/"  # image
-        dst_dir = "/content/DETRAC-dataset/Annotations/0510/scripts/test_image"
+        src_dir = "/content/Insight-MVT_Annotation_Test/"    # original image path
+        dst_dir = "/content/dataset/images/val/"    # satisfy the folder structure of YOLOv5 for training
 
     if not osp.exists(dst_dir):
         os.makedirs(dst_dir)
@@ -34,12 +34,10 @@ for FLAG in range(2):
             pat = ".+\.(jpg|jpeg|JPG)"
             pattern = re.findall(pat, fileName)
             image_name = fileName.split(".")[0]
-
             os.rename(fileName, ('{}_{}.jpg'.format(image_name, str(seq))))
 
         sys.stdin.flush()
         print("after rename：" + str(os.listdir(path)))
-
     print("step1 finished!-----")
 
     j = 0

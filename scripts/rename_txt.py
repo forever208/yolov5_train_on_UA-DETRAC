@@ -12,12 +12,12 @@ import sys
 for FLAG in range(2):
     if FLAG == 0:
         ##train
-        src_dir = "/content/yolov5_train_on_UA-DETRAC/scripts/train_detrac_txt"  # image
-        dst_dir = "/content/DETRAC-dataset/Annotations/0510/scripts/train_txt_select"
+        src_dir = "/content/train_detrac_txt"    # labels
+        dst_dir = "/content/dataset/labels/train/"    # satisfy the folder structure of YOLOv5 for training
     else:
         ##test
-        src_dir = "/content/yolov5_train_on_UA-DETRAC/scripts/test_detrac_txt"  # image
-        dst_dir = "/content/DETRAC-dataset/Annotations/0510/scripts/test_txt_select"
+        src_dir = "/content/test_detrac_txt"    # labels
+        dst_dir = "/content/dataset/labels/val/"    # satisfy the folder structure of YOLOv5 for training
 
     if not osp.exists(dst_dir):
         os.makedirs(dst_dir)
@@ -34,12 +34,10 @@ for FLAG in range(2):
             pat = ".+\.(txt|xml|json)"
             pattern = re.findall(pat, fileName)
             image_name = fileName.split(".")[0]
-
             os.rename(fileName, ('{}_{}.txt'.format(image_name, str(seq))))
 
         sys.stdin.flush()
         print("after rename：" + str(os.listdir(path)))
-
     print("step1 finished!-----")
 
     j = 0
