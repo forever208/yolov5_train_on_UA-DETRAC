@@ -24,6 +24,7 @@ for FLAG in range(2):
 
     seqs = [s for s in os.listdir(src_dir)]
 
+    # rename images
     for seq in seqs:
         path = osp.join(src_dir, seq)
         # print(path)
@@ -38,8 +39,9 @@ for FLAG in range(2):
 
         sys.stdin.flush()
         print("after rename：" + str(os.listdir(path)))
-    print("step1 finished!-----")
+    print("image rename finished!-----")
 
+    # select images
     j = 0
     for seq in seqs:
         path = osp.join(src_dir, seq)
@@ -47,7 +49,7 @@ for FLAG in range(2):
         for root, dirs, files in os.walk(path):
             files = sorted(files)
             for i in range(len(files)):
-                if i%10== 0:
+                if i % 10 == 0:    # only pick 1/10 images
                     j += 1
                     if (files[i][-3:] == 'jpg' or files[i][-3:] == 'JPG') or files[i][-4:]=='jpeg':
                         file_path = path + '/' + files[i]
@@ -56,5 +58,5 @@ for FLAG in range(2):
 
                     if i % 100 == 0:
                         print(j)
-    print("step2 finished!------")
+    print("image selection finished!------")
     # print(str(os.listdir(dst_dir)))

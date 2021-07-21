@@ -128,7 +128,7 @@ for FLAG in range(2):
     tid_curr = 0
     tid_last = -1  #用于在下一个视频序列时，ID数接着上一个视频序列最大值
     for seq in seqs: #每一个视频序列
-        print(seq)
+        print('xml to txt transform, handling video: ', seq)
         seq_width = 960
         seq_height = 540
 
