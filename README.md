@@ -65,17 +65,98 @@ We then need to do 3 things before training YOLOv5 using UA-DERTAC dataset:
 - organize the dataset folder structure to meet the requirment of YOLOv5 default setting.
 - re-organize the training set and validation set because the original split of DETRAC is not good (refer to [this blog](https://zhuanlan.zhihu.com/p/373096271) for more details)
 
-#### Transform xml to txt
-Using python script `yolov5_train_on_UA-DETRAC/scripts/bigxml_txt.py` to do the transformation. Remember to change the path 
 
+
+#### Transform xml to txt
+Using python script `yolov5_train_on_UA-DETRAC/scripts/bigxml_txt.py` to do the transformation. 
+
+Remember to change the path in the script file.
+
+<p align="left">
+  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/change_path.png" width='50%' height='50%'/>
+</p>
+
+After changing the path, run the commands:
 ```
 cd yolov5_train_on_UA-DETRAC/scripts/ 
 python bigxml_txt.py
 ```
 
-you should now get the following folder structure where is the txt labels.
+you should now get the following folder structure where `train_detrac_txt` and `test_detrac_txt` are the txt labels.
 <p align="left">
-  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_1.png" width='80%' height='80%'/>
+  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_1.png" width='25%' height='25%'/>
 </p>
 
 
+
+#### Organize the dataset folder structure
+
+run the following script to only pick up 1/10 images and rename images, move them into `/content/dataset/images/` (change to your path here)
+```
+python rename_image.py
+```
+
+only pick up 1/10 txts and rename them, move them into `/content/dataset/labels/` (change to your path here)
+```
+python rename_txt.py
+```
+
+You should now get the following folder structure: `/dataset`, it is parallel with `yolov5_train_on_UA-DETRAC`.  
+
+(this structure meets the demand of YOLOv5 custom training)
+
+<p align="left">
+  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_2.png" width='25%' height='25%'/>
+</p>
+
+
+#### Re-organize the training and validation set
+
+For simplicity, I merely add the validation set into training set for the best training results.
+
+Of course, you can train and val set togerther and do a random split (80% as training, 20% as validation).
+
+```
+# remove the redundant folder  
+cd ../..
+rm -rf DETRAC-Test-Annotations-XML/
+rm -rf DETRAC-Train-Annotations-XML/
+rm -rf Insight-MVT_Annotation_Test/
+rm -rf Insight-MVT_Annotation_Train/
+rm -rf test_detrac_txt/
+rm -rf train_detrac_txt/
+
+# add validation set into training set (change to your path)
+cp -i -r /content/dataset/images/val/. /content/dataset/images/train/
+cp -i -r /content/dataset/labels/val/. /content/dataset/labels/train/ 
+```
+
+
+
+## 【4】Train
+
+#### Configuration setting
+Before training, you can modify some configurations according to you demand.
+
+`yolov5_train_on_UA-DETRAC/data/UA_DETRAC.yaml` 
+
+contains the image and label path for training, validation and testing. (we have well setted it up)
+
+`yolov5_train_on_UA-DETRAC/model/yolov5m.yaml` 
+
+contains the layers configuration and number of classes. (change the number of classes to 1)
+
+
+#### Train
+Now, you can train the network with UA-DETRAC dataset.
+
+Let's say, we use `YOLOv5m` as the pre-trained model to train for `10 epochs` with the image size `640`
+
+```
+python train.py --img 640 --batch 16 --epochs 5 --data UA_DETRAC.yaml --weights yolov5m.pt 
+```
+
+Below is the all arguments you can tune for training:
+<p align="left">
+  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/training%20arguments.png" width='80%' height='80%'/>
+</p>
