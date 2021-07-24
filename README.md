@@ -67,7 +67,7 @@ We then need to do 3 things before training YOLOv5 using UA-DERTAC dataset:
 
 
 
-#### Transform xml to txt
+### Transform xml to txt
 Using python script `yolov5_train_on_UA-DETRAC/scripts/bigxml_txt.py` to do the transformation. 
 
 Remember to change the path in the script file.
@@ -89,7 +89,7 @@ you should now get the following folder structure where `train_detrac_txt` and `
 
 
 
-#### Organize the dataset folder structure
+### Organize the dataset folder structure
 
 run the following script to only pick up 1/10 images and rename images, move them into `/content/dataset/images/` (change to your path here)
 ```
@@ -110,7 +110,7 @@ You should now get the following folder structure: `/dataset`, it is parallel wi
 </p>
 
 
-#### Re-organize the training and validation set
+### Re-organize the training and validation set
 
 For simplicity, I merely add the validation set into training set for the best training results.
 
@@ -135,7 +135,7 @@ cp -i -r /content/dataset/labels/val/. /content/dataset/labels/train/
 
 ## 【4】Train
 
-#### Configuration setting
+### Configuration setting
 Before training, you can modify some configurations according to you demand.
 
 `yolov5_train_on_UA-DETRAC/data/UA_DETRAC.yaml` 
@@ -147,7 +147,7 @@ contains the image and label path for training, validation and testing. (we have
 contains the layers configuration and number of classes. (change the number of classes to 1)
 
 
-#### Train
+### Train
 Now, you can train the network with UA-DETRAC dataset.
 
 Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640`
