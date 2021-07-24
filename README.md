@@ -11,7 +11,7 @@ Running the repo in Colab is recommended, copy the file [YOLOv5_train_on_UA-DETR
 * Python >=3.7
 * Pytorch >=1.7
 
-Create a new conda called handobj, install pytorch-1.6.0
+Create a new conda called YOLOv5, install pytorch-1.7.0
 ```
 conda create --name YOLOv5 python=3.7
 conda activate YOLOv5
