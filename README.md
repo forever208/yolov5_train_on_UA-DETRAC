@@ -65,12 +65,17 @@ We then need to do 3 things before training YOLOv5 using UA-DERTAC dataset:
 - organize the dataset folder structure to meet the requirment of YOLOv5 default setting.
 - re-organize the training set and validation set because the original split of DETRAC is not good (refer to [this blog](https://zhuanlan.zhihu.com/p/373096271) for more details)
 
-#### transform xml to txt
+#### Transform xml to txt
 Using python script `yolov5_train_on_UA-DETRAC/scripts/bigxml_txt.py` to do the transformation. Remember to change the path 
 
 ```
 cd yolov5_train_on_UA-DETRAC/scripts/ 
 python bigxml_txt.py
 ```
+
+you should now get the following folder structure where is the txt labels.
+<p align="left">
+  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_1.png" width='80%' height='80%'/>
+</p>
 
 
