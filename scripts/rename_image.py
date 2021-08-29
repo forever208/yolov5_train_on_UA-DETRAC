@@ -12,12 +12,12 @@ import sys
 for FLAG in range(2):
     if FLAG == 0:
         ##train
-        src_dir = "/content/Insight-MVT_Annotation_Train/"    # original image path
-        dst_dir = "/content/dataset/images/train/"    # satisfy the folder structure of YOLOv5 for training
+        src_dir = "../../Insight-MVT_Annotation_Train/"    # original image path
+        dst_dir = "../../dataset/images/train/"    # satisfy the folder structure of YOLOv5 for training
     else:
         ##test
-        src_dir = "/content/Insight-MVT_Annotation_Test/"    # original image path
-        dst_dir = "/content/dataset/images/val/"    # satisfy the folder structure of YOLOv5 for training
+        src_dir = "../../Insight-MVT_Annotation_Test/"    # original image path
+        dst_dir = "../../dataset/images/val/"    # satisfy the folder structure of YOLOv5 for training
 
     if not osp.exists(dst_dir):
         os.makedirs(dst_dir)

@@ -12,12 +12,12 @@ import sys
 for FLAG in range(2):
     if FLAG == 0:
         ##train
-        src_dir = "/content/train_detrac_txt"    # labels
-        dst_dir = "/content/dataset/labels/train/"    # satisfy the folder structure of YOLOv5 for training
+        src_dir = "../../train_detrac_txt"    # labels
+        dst_dir = "../../dataset/labels/train/"    # satisfy the folder structure of YOLOv5 for training
     else:
         ##test
-        src_dir = "/content/test_detrac_txt"    # labels
-        dst_dir = "/content/dataset/labels/val/"    # satisfy the folder structure of YOLOv5 for training
+        src_dir = "../../test_detrac_txt"    # labels
+        dst_dir = "../../dataset/labels/val/"    # satisfy the folder structure of YOLOv5 for training
 
     if not osp.exists(dst_dir):
         os.makedirs(dst_dir)
@@ -56,7 +56,7 @@ for FLAG in range(2):
                         new_file_path = dst_dir + '/' + files[i]
                         shutil.copy(file_path, new_file_path)
 
-                    if i % 100 == 0:
+                    if i % 1000 == 0:
                         print(j)
     print("txt selection finished!------")
     # print(str(os.listdir(dst_dir)))
