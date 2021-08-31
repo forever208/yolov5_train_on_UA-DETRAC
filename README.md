@@ -2,7 +2,7 @@
 
 This repo is based on [YOLOv5 (5.0)](https://github.com/ultralytics/yolov5/releases/tag/v5.0) and aims at training the network with dataset [UA-DETRAC](https://detrac-db.rit.albany.edu/).
 
-Running the repo in Colab is recommended, copy the file [YOLOv5_train_on_UA-DETRAC.ipynb](https://colab.research.google.com/drive/1a8VZepcpGkk7ZzMDNu-s3PPu43G1n9Fm?usp=sharing), then run it on Colab. (remember to change the runtime type to GPU in Colab)
+Running the repo in Colab is recommended, copy the file [YOLOv5_train_on_UA-DETRAC.ipynb](https://colab.research.google.com/drive/13zZ9W4_kIePyCS_TzJim0lytHaC850G3?usp=sharing), then run it on Colab. (remember to change the runtime type to GPU in Colab)
 
 
 
