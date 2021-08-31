@@ -126,9 +126,9 @@ rm -rf Insight-MVT_Annotation_Train/
 rm -rf test_detrac_txt/
 rm -rf train_detrac_txt/
 
-# add validation set into training set (change to your path)
-cp -i -r /content/dataset/images/val/. /content/dataset/images/train/
-cp -i -r /content/dataset/labels/val/. /content/dataset/labels/train/ 
+# add validation set into training set (because the distribution of DETRAC is biased in training set) 
+cp -i -r ./dataset/images/val/. ./dataset/images/train/
+cp -i -r ./dataset/labels/val/. ./dataset/labels/train/ 
 ```
 
 
