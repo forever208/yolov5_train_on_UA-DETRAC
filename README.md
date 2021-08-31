@@ -84,12 +84,12 @@ you should now get the following folder structure where `train_detrac_txt` and `
 
 ### Organize the dataset folder structure
 
-run the following script to only pick up 1/10 images and rename images, move them into `/content/dataset/images/` (change to your path here)
+run the following script to only pick up 1/10 images and rename images, move them into `/dataset/images/` 
 ```
 python rename_image.py
 ```
 
-only pick up 1/10 txts and rename them, move them into `/content/dataset/labels/` (change to your path here)
+only pick up 1/10 txts and rename them, move them into `/dataset/labels/` 
 ```
 python rename_txt.py
 ```
