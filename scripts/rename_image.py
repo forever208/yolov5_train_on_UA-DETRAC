@@ -56,7 +56,6 @@ for FLAG in range(2):
                         new_file_path = dst_dir + '/' + files[i]
                         shutil.copy(file_path, new_file_path)
 
-                    if i % 100 == 0:
+                    if i % 1000 == 0:
                         print(j)
     print("image selection finished!------")
-    # print(str(os.listdir(dst_dir)))
