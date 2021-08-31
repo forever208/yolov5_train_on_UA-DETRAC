@@ -70,13 +70,6 @@ We then need to do 3 things before training YOLOv5 using UA-DERTAC dataset:
 ### Transform xml to txt
 Using python script `yolov5_train_on_UA-DETRAC/scripts/bigxml_txt.py` to do the transformation. 
 
-Remember to change the path in the script file.
-
-<p align="left">
-  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/change_path.png" width='50%' height='50%'/>
-</p>
-
-After changing the path, run the commands:
 ```
 cd yolov5_train_on_UA-DETRAC/scripts/ 
 python bigxml_txt.py
