@@ -103,7 +103,7 @@ python rename_txt.py
 
 You should now get the following folder structure: `/dataset`, it is parallel with `yolov5_train_on_UA-DETRAC`.  
 
-(this structure meets the demand of YOLOv5 custom training)
+(**this structure meets the demand of YOLOv5 custom training**)
 
 <p align="left">
   <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_2.png" width='25%' height='25%'/>
@@ -126,9 +126,9 @@ rm -rf Insight-MVT_Annotation_Train/
 rm -rf test_detrac_txt/
 rm -rf train_detrac_txt/
 
-# add validation set into training set (change to your path)
-cp -i -r /content/dataset/images/val/. /content/dataset/images/train/
-cp -i -r /content/dataset/labels/val/. /content/dataset/labels/train/ 
+# add validation set into training set (because the distribution of DETRAC is biased in training set) 
+cp -i -r ./dataset/images/val/. ./dataset/images/train/
+cp -i -r ./dataset/labels/val/. ./dataset/labels/train/ 
 ```
 
 
@@ -150,11 +150,17 @@ contains the layers configuration and number of classes. (change the number of c
 ### Train
 Now, you can train the network with UA-DETRAC dataset.
 
-Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640`
+Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640` in a single GPU
 
 ```
 python train.py --img 640 --batch 16 --epochs 5 --data UA_DETRAC.yaml --weights yolov5m.pt 
 ```
+
+For multi-GPUs training, let's say 4 GPUs, you can do:
+```
+python -m torch.distributed.launch --nproc_per_node 4 train.py --img 640 --batch 64 --epochs 10 --data UA_DETRAC.yaml --weights yolov5m.pt --device 0,1,2,3
+```
+
 
 Below is the all arguments you can tune for training:
 <p align="left">
