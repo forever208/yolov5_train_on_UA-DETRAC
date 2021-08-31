@@ -150,11 +150,17 @@ contains the layers configuration and number of classes. (change the number of c
 ### Train
 Now, you can train the network with UA-DETRAC dataset.
 
-Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640`
+Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640` in a single GPU
 
 ```
 python train.py --img 640 --batch 16 --epochs 5 --data UA_DETRAC.yaml --weights yolov5m.pt 
 ```
+
+For multi-GPUs training, let's say 4 GPUs, you can do:
+```
+python -m torch.distributed.launch --nproc_per_node 4 train.py --img 640 --batch 64 --epochs 10 --data UA_DETRAC.yaml --weights yolov5m.pt --device 0,1,2,3
+```
+
 
 Below is the all arguments you can tune for training:
 <p align="left">
