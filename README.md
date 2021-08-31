@@ -103,7 +103,7 @@ python rename_txt.py
 
 You should now get the following folder structure: `/dataset`, it is parallel with `yolov5_train_on_UA-DETRAC`.  
 
-(this structure meets the demand of YOLOv5 custom training)
+(**this structure meets the demand of YOLOv5 custom training**)
 
 <p align="left">
   <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_2.png" width='25%' height='25%'/>
