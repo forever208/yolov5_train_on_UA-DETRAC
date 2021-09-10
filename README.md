@@ -102,7 +102,7 @@ You should now get the following folder structure: `/dataset`, it is parallel wi
   <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_2.png" width='25%' height='25%'/>
 </p>
 
-Regarding the labels, one image corresponds to one txt label, the format of label is 'class_index, x_center, y_center, w, h'
+Regarding the labels, one image corresponds to one txt label, the format of label is `class_index, x_center, y_center, w, h`
 <p align="left">
   <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/label%20example.png" width='40%' height='40%'/>
 </p>
